@@ -2,6 +2,7 @@ angular.module('shortly.links', [])
 
 .controller('LinksController', function ($scope, $window, $location, Links) {
   $scope.data = {};
+  $scope.data.searchInput = '';
 
   $scope.updateData = function() {
     Links.getAll().then(function(links) {
@@ -9,6 +10,7 @@ angular.module('shortly.links', [])
         return link.visits;
       });
       $scope.data.links = sortedlinks.reverse();
+      $scope.filterLinks();
     });
   };
 
@@ -18,6 +20,12 @@ angular.module('shortly.links', [])
         $window.open(url, '_blank');
       });
     $scope.updateData();
+  };
+
+  $scope.filterLinks = function() {
+    $scope.data.filteredLinks = $scope.data.links.filter(function(link) {
+      return RegExp($scope.data.searchInput).exec(link.url) !== null ? true : false;
+    });
   };
 
   $scope.updateData();

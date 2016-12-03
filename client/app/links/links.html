@@ -1,7 +1,10 @@
 <div id='container'>
   <div>
+    <form name="filterLinksForm">
+      <input name="filterInput" type='text' ng-model='data.searchInput' ng-change='filterLinks()'>
+    </form>
     <ul>
-      <li ng-repeat="link in data.links" ng-click="linkClickHandler(link.code)">
+      <li ng-repeat="link in data.filteredLinks" ng-click="linkClickHandler(link.code)">
         {{ link.title }} - {{ link.visits }}
       </li>
     </ul>
