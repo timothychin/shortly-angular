@@ -1,3 +1,9 @@
 <div id='container'>
-  <!-- Your html here -->
+  <div>
+    <ul>
+      <li ng-repeat="link in data.links" ng-click="urlRedirect(link.url)">
+        {{ link.url }}
+      </li>
+    </ul>
+  </div>
 </div>
