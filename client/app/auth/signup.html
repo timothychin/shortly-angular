@@ -1,9 +1,15 @@
 <div id='signup'>
   <h1>signup</h1>
   <form name="signupForm" ng-submit='signup()'>
-    <input type='text' ng-model='user.username'>
-    <input type="password" ng-model='user.password'>
-    <button>signup</button>
+    <input name="newUser" required type='text' ng-model='user.username'>
+    <input name="newPassword" required type="password" ng-model='user.password' ng-minlength="5">
+    <button>Sign Up</button>
+    <div>
+        <span class="" ng-show="(signupForm.newUser.$touched && signupForm.newUser.$error.required) || (signupForm.newPassword.$touched && signupForm.newPassword.$error.required)">
+          Required!</span>
+        <span class="" ng-show="signupForm.newPassword.$invalid && signupForm.newPassword.$touched">
+          Password too short!</span>
+      </div>
   </form>
   <a href="#/signin">Already have an account? <strong>Signin</strong> ...</a>
 </div>

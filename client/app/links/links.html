@@ -2,7 +2,7 @@
   <div>
     <ul>
       <li ng-repeat="link in data.links" ng-click="urlRedirect(link.url)">
-        {{ link.title }}
+        {{ link.title }} - {{ link.visits }}
       </li>
     </ul>
   </div>
