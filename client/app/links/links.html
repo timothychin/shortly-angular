@@ -1,7 +1,7 @@
 <div id='container'>
   <div>
     <ul>
-      <li ng-repeat="link in data.links" ng-click="urlRedirect(link.url)">
+      <li ng-repeat="link in data.links" ng-click="linkClickHandler(link.code)">
         {{ link.title }} - {{ link.visits }}
       </li>
     </ul>
