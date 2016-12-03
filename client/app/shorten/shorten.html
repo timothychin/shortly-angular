@@ -1,8 +1,14 @@
 <div id='container'>
   <div>
     <form name="createLinkForm" ng-submit='addLink(link.url)'>
-      <input type='text' ng-model='link.url'>
+      <input name="inputLinkForm" type='url' ng-model='link.url' required>
       <button>Submit</button>
+      <div>
+        <span class="" ng-show="createLinkForm.inputLinkForm.$touched && createLinkForm.inputLinkForm.$error.required">
+          Required!</span>
+        <span class="" ng-show="createLinkForm.inputLinkForm.$error.url">
+          Not valid url!</span>
+      </div>
     </form>
   </div>
 </div>
